@@ -23,9 +23,9 @@ Calendar::Calendar(){}
 
 Calendar::~Calendar(){}
 
-// 西暦で示した年が4で割り切れる年は閏年です
-// 西暦で示した年が100で割り切れる年は閏年ではありません
-// 西暦で示した年が400で割り切れる年は閏年です
+// 西暦で示した年が4で割り切れる年は閏年
+// 西暦で示した年が100で割り切れる年は閏年ではない
+// 西暦で示した年が400で割り切れる年は閏年
 bool Calendar::is_leapyear(int y){
   if((y % 4 == 0 && y%100 !=0) || y % 400 == 0)
     return true;
@@ -97,8 +97,7 @@ void Calendar::show(int y, int m, int d){
   cout << dt_pos << " => Start日は "<< show_date_string(dt_pos) << "曜日です" << endl;
   sp_cnt = get_space_cnt();
 
-  cout << "空白の数：" << sp_cnt << endl;
-
+  //cout << "空白の数：" << sp_cnt << endl;
   // output calendar
   cout << endl << "        "
       << m << "-" << y << endl;
@@ -120,6 +119,7 @@ void Calendar::show(int y, int m, int d){
   cout << endl;
 }
 
+// 実行する
 int main(int argc, char const *argv[])
 {
   int y,m;
@@ -129,8 +129,8 @@ int main(int argc, char const *argv[])
   cout << "input month" << endl;
   cin >> m;
 
-  Calendar cal = Calendar();
-  cal.show(y,m,1);
+  Calendar *cal;
+  cal->show(y,m,1);
 
   return 0;
 }
